@@ -259,7 +259,7 @@ class PrivateRecipeAPITests(TestCase):
         """Test updating a recipe and creating a ingredient"""
         recipe = create_recipe(user=self.user)
 
-        payload = {'ingredients': [{'name': 'Limes'},]}
+        payload = {'ingredients': [{'name': 'Limes'}, ]}
         url = detail_url(recipe.id)
         res = self.client.patch(url, payload, format='json')
 
@@ -274,7 +274,7 @@ class PrivateRecipeAPITests(TestCase):
         recipe.ingredients.add(ingredient1)
 
         ingredient2 = Ingredient.objects.create(user=self.user, name='Chili')
-        payload = {'ingredients': [{'name': 'Chili'},]}
+        payload = {'ingredients': [{'name': 'Chili'}, ]}
 
         url = detail_url(recipe.id)
         res = self.client.patch(url, payload, format='json')
